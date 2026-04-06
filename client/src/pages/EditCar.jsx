@@ -51,8 +51,12 @@ function EditCar() {
       return
     }
 
-    await updateCar(id, formData)
-    navigate(`/cars/${id}`)
+    try {
+      await updateCar(id, formData)
+      navigate(`/cars/${id}`)
+    } catch (apiError) {
+      setError(apiError.message)
+    }
   }
 
   const handleDelete = async () => {

@@ -13,7 +13,7 @@ The following **required** functionality is completed:
 <!-- Make sure to check off completed functionality below -->
 - [ x] **The web app uses React to display data from the API.**
 - [x ] **The web app is connected to a PostgreSQL database, with an appropriately structured `CustomItem` table.**
-  - [x]  **NOTE: Your walkthrough added to the README must include a view of your Render dashboard demonstrating that your Postgres database is available**
+  - [ x]  **NOTE: Your walkthrough added to the README must include a view of your Render dashboard demonstrating that your Postgres database is available**
   - [x ]  **NOTE: Your walkthrough added to the README must include a demonstration of your table contents. Use the psql command 'SELECT * FROM tablename;' to display your table contents.**
 - [ x] **Users can view **multiple** features of the `CustomItem` (e.g. car) they can customize, (e.g. wheels, exterior, etc.)**
 - [ x] **Each customizable feature has multiple options to choose from (e.g. exterior could be red, blue, black, etc.)**

@@ -1,41 +1,31 @@
-import React from 'react'
-import { useRoutes } from 'react-router-dom'
-import Navigation from './components/Navigation'
+import './App.css'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import ViewCars from './pages/ViewCars'
-import EditCar from './pages/EditCar'
 import CreateCar from './pages/CreateCar'
 import CarDetails from './pages/CarDetails'
-import './App.css'
+import EditCar from './pages/EditCar'
 
-const App = () => {
-  let element = useRoutes([
-    {
-      path: '/',
-      element: <CreateCar title='BOLT BUCKET | Customize' />
-    },
-    {
-      path:'/customcars',
-      element: <ViewCars title='BOLT BUCKET | Custom Cars' />
-    },
-    {
-      path: '/customcars/:id',
-      element: <CarDetails title='BOLT BUCKET | View' />
-    },
-    {
-      path: '/edit/:id',
-      element: <EditCar title='BOLT BUCKET | Edit' />
-    }
-  ])
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <ViewCars />
+  },
+  {
+    path: '/new',
+    element: <CreateCar />
+  },
+  {
+    path: '/cars/:id',
+    element: <CarDetails />
+  },
+  {
+    path: '/edit/:id',
+    element: <EditCar />
+  }
+])
 
-  return (
-    <div className='app'>
-
-      <Navigation />
-
-      { element }
-
-    </div>
-  )
+function App() {
+  return <RouterProvider router={router} />
 }
 
 export default App

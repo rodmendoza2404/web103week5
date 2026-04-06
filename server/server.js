@@ -1,18 +1,23 @@
 import express from 'express'
 import path from 'path'
 import favicon from 'serve-favicon'
-import dotenv from 'dotenv'
+import cors from 'cors'
+import 'dotenv/config'
+import customItemsRouter from './routes/customItems.js'
 
-// import the router from your routes file
 
-
-dotenv.config()
-
-const PORT = process.env.PORT || 3000
 
 const app = express()
 
+app.use(cors())
 app.use(express.json())
+
+app.get('/api/health', (_, res) => {
+    res.status(200).json({ status: 'ok' })
+})
+
+app.use('/api/custom-items', customItemsRouter)
+const PORT = process.env.PORT || 3000
 
 if (process.env.NODE_ENV === 'development') {
     app.use(favicon(path.resolve('../', 'client', 'public', 'lightning.png')))
@@ -22,7 +27,7 @@ else if (process.env.NODE_ENV === 'production') {
     app.use(express.static('public'))
 }
 
-// specify the api path for the server to use
+ 
 
 
 if (process.env.NODE_ENV === 'production') {
